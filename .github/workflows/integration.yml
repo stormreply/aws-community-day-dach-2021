@@ -1,0 +1,31 @@
+name: Integration
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js with GitHub Package Registry
+        uses: actions/setup-node@v2
+        with:
+          cache: "yarn"
+          node-version: 16
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@stormreply"
+      - name: Install dependencies
+        run: yarn setup:ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Build sources
+        run: yarn build:production
+      - name: Lint sources
+        run: yarn lint:ci
+      - name: Run tests
+        run: yarn test
+        env:
+          CI: true

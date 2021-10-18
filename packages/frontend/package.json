@@ -1,0 +1,52 @@
+{
+  "name": "@stormreply/aws-community-day-dach-2021-frontend",
+  "license": "MIT",
+  "repository": "git@github.com:stormreply/aws-community-day-dach-2021.git",
+  "author": {
+    "name": "Henning Teek",
+    "email": "h.teek@reply.de"
+  },
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "build:production": "yarn generate",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:ci": "yarn lint",
+    "lint:fix": "yarn lint --fix",
+    "prepare": "husky install",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint"
+  },
+  "dependencies": {
+    "core-js": "3.18.3",
+    "nuxt": "2.15.8"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "7.15.8",
+    "@nuxt/types": "2.15.8",
+    "@nuxt/typescript-build": "2.1.0",
+    "@nuxtjs/eslint-config-typescript": "6.0.1",
+    "@nuxtjs/eslint-module": "3.0.2",
+    "@nuxtjs/tailwindcss": "4.2.1",
+    "@vue/test-utils": "1.2.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "27.3.1",
+    "eslint": "7.29.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-nuxt": "2.0.0",
+    "eslint-plugin-vue": "7.19.1",
+    "jest": "27.3.1",
+    "lint-staged": "11.2.3",
+    "postcss": "8.3.9",
+    "prettier": "2.4.1",
+    "ts-jest": "27.0.7",
+    "ts-loader": "8.3.0",
+    "typescript": "4.4.4",
+    "vue-jest": "3.0.7"
+  }
+}

@@ -1,0 +1,48 @@
+name: Release dev
+on:
+  push:
+    branches: [main]
+jobs:
+  release:
+    if: contains(github.event.commits[0].message, '[skip ci]') == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - name: Setup Node.js with GitHub Package Registry
+        uses: actions/setup-node@v2
+        with:
+          cache: "yarn"
+          node-version: 16
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@stormreply"
+      - name: Install dependencies
+        run: yarn setup:ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Build sources
+        run: yarn build:production
+      - name: Lint sources
+        run: yarn lint:ci
+      - name: Run tests
+        run: yarn test
+        env:
+          CI: true
+      - name: Release version
+        run: yarn release
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+      - name: Deploy backend cdk project
+        run: yarn workspace @stormreply/aws-community-day-dach-2021-backend cdk deploy --require-approval never --outputs-file outputs.json
+      - name: Upload cdk outputs
+        run: cd packages/backend && ./upload-outputs.sh && cd ../..

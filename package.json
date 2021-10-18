@@ -1,0 +1,51 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "build:production": "lerna run build:production --stream",
+    "deploy": "yarn --cwd packages/backend run cdk deploy --require-approval never --outputs-file outputs.json",
+    "diff": "yarn --cwd packages/backend run cdk diff",
+    "format": "lerna run format --stream --parallel",
+    "lint": "lerna run lint --stream --parallel",
+    "lint:ci": "lerna run lint:ci --stream --parallel",
+    "lint:fix": "lerna run lint:fix --stream --parallel",
+    "release": "HUSKY=0 lerna version --yes",
+    "prepare": "husky install",
+    "setup": "yarn && lerna bootstrap",
+    "setup:ci": "yarn install --frozen-lockfile && yarn run bootstrap --ci",
+    "test": "lerna run test --stream",
+    "test:update-snapshot": "lerna run test:update-snapshot --stream",
+    "upgrade": "yarn upgrade-interactive --latest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "13.2.1",
+    "@commitlint/config-conventional": "13.2.0",
+    "adr": "1.3.1",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "7.0.2",
+    "lerna": "4.0.0",
+    "prettier": "2.4.1"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "defaultScope": "aws-community-day-dach-2021"
+    }
+  },
+  "workspaces": {
+    "packages": [
+      "constructs/*",
+      "packages/*"
+    ],
+    "nohoist": [
+      "@stormreply/aws-community-day-dach-2021-frontend/**"
+    ]
+  }
+}

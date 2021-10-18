@@ -1,0 +1,82 @@
+{
+  "name": "@stormreply/aws-community-day-dach-2021-deployment",
+  "license": "MIT",
+  "repository": "git@github.com:stormreply/aws-community-day-dach-2021.git",
+  "author": {
+    "name": "Henning Teek",
+    "email": "h.teek@reply.de"
+  },
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "jsii",
+    "build:watch": "jsii --watch",
+    "build:production": "yarn build",
+    "format": "prettier --config .prettierrc.js '**/*.{js,ts,md}' --write",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,md}' --quiet",
+    "lint:ci": "eslint '*/**/*.{js,ts,md}' --quiet",
+    "lint:fix": "yarn lint --fix",
+    "precommit": "tsc --noEmit && lint-staged",
+    "test": "jest",
+    "test:update-snapshot": "jest -u --no-coverage",
+    "test:watch": "jest --watch",
+    "package": "jsii-pacmak"
+  },
+  "keywords": [],
+  "stability": "stable",
+  "jsii": {
+    "excludeTypescript": [
+      "test/**/*.ts"
+    ],
+    "outdir": "dist",
+    "tsc": {
+      "outDir": "build"
+    },
+    "versionFormat": "full"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write",
+      "eslint --fix",
+      "jest --bail --coverage=false --findRelatedTests"
+    ]
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "2.0.0-rc.24",
+    "@types/jest": "27.0.2",
+    "@types/lodash": "4.14.175",
+    "@types/node": "16.11.1",
+    "@typescript-eslint/eslint-plugin": "5.1.0",
+    "@typescript-eslint/parser": "5.1.0",
+    "aws-cdk-lib": "2.0.0-rc.24",
+    "constructs": "10.0.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-cdk": "1.4.0",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-jest": "25.2.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.1.0",
+    "jest": "27.3.1",
+    "jsii": "1.39.0",
+    "jsii-pacmak": "1.39.0",
+    "lint-staged": "11.2.3",
+    "prettier": "2.4.1",
+    "ts-jest": "27.0.7",
+    "typescript": "4.4.4"
+  },
+  "dependencies": {
+    "lodash": "4.17.21",
+    "source-map-support": "0.5.20"
+  },
+  "peerDependencies": {
+    "aws-cdk-lib": "2.0.0-rc.24",
+    "constructs": "10.0.0"
+  },
+  "bundledDependencies": [
+    "source-map-support",
+    "lodash"
+  ]
+}
