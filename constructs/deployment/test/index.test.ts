@@ -5,9 +5,14 @@ import '@aws-cdk/assert/jest';
 import { DeploymentStack } from '../src';
 
 describe('deployment stack', () => {
+  let stack: Stack;
+
+  beforeAll(() => {
+    stack = new DeploymentStack(new Stack(new App()), 'Deployment');
+  });
+
   describe('custom cdk bucket deployment', () => {
     test('lambda function', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('AWS::Lambda::Function', {
         Handler: 'index.handler',
         Layers: [
@@ -24,7 +29,6 @@ describe('deployment stack', () => {
     });
 
     test('service role', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('AWS::IAM::Role', {
         AssumeRolePolicyDocument: {
           Statement: [
@@ -56,7 +60,6 @@ describe('deployment stack', () => {
     });
 
     test('role policy', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('AWS::IAM::Policy', {
         PolicyDocument: {
           Statement: [
@@ -139,12 +142,10 @@ describe('deployment stack', () => {
 
   describe('frontend bucket deployment', () => {
     test('lambda layer version', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('AWS::Lambda::LayerVersion', {});
     });
 
     test('custom resource', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('Custom::CDKBucketDeployment', {
         DestinationBucketName: {
           Ref: 'FrontendBucketEFE2E19C',
@@ -169,7 +170,6 @@ describe('deployment stack', () => {
 
   describe('frontend bucket', () => {
     test('bucket', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('AWS::S3::Bucket', {
         WebsiteConfiguration: {
           IndexDocument: 'index.html',
@@ -178,7 +178,6 @@ describe('deployment stack', () => {
     });
 
     test('policy', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('AWS::S3::BucketPolicy', {
         Bucket: {
           Ref: 'FrontendBucketEFE2E19C',
@@ -212,7 +211,6 @@ describe('deployment stack', () => {
 
   describe('frontend distribution', () => {
     test('cloudfront distribution', () => {
-      const stack = new DeploymentStack(new Stack(new App()), 'Deployment');
       expect(stack).toHaveResource('AWS::CloudFront::Distribution', {
         DistributionConfig: {
           DefaultCacheBehavior: {

@@ -21,3 +21,7 @@ To start the Development, try to run `yarn run setup` in the root project.
 This command will run yarn install on the root project and afterwards on all packages via lerna to create links for cross-package-dependencies.
 
 See [Lerna Bootstrap Documentation](https://github.com/lerna/lerna/tree/master/commands/bootstrap#readme) for more information.
+
+## Demo
+
+The frontend is deployed to https://d2fxqbzdovr139.cloudfront.net

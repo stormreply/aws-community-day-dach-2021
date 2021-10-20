@@ -6,6 +6,11 @@ import { BackendStack } from '../lib';
 
 describe('backend stack', () => {
   describe('nested stacks', () => {
+    test('api', () => {
+      const stack = new BackendStack(new App(), 'Backend');
+      expect(stack).toHaveResource('AWS::CloudFormation::Stack', {});
+    });
+
     test('deployment', () => {
       const stack = new BackendStack(new App(), 'Backend');
       expect(stack).toHaveResource('AWS::CloudFormation::Stack', {});
@@ -38,6 +43,37 @@ describe('backend stack', () => {
       outputName: 'region',
       outputValue: {
         Ref: 'AWS::Region',
+      },
+    });
+
+    expect(stack).toHaveOutput({
+      outputName: 'restApiEndpoint',
+      outputValue: {
+        'Fn::Join': [
+          '',
+          [
+            'https://',
+            {
+              'Fn::GetAtt': ['ApiNestedStackApiNestedStackResourceD6AA1271', 'Outputs.BackendApiFizzBuzz9B647DB1Ref'],
+            },
+            '.execute-api.',
+            {
+              Ref: 'AWS::Region',
+            },
+            '.',
+            {
+              Ref: 'AWS::URLSuffix',
+            },
+            '/',
+            {
+              'Fn::GetAtt': [
+                'ApiNestedStackApiNestedStackResourceD6AA1271',
+                'Outputs.BackendApiFizzBuzzDeploymentStageprod16149FAFRef',
+              ],
+            },
+            '/',
+          ],
+        ],
       },
     });
   });

@@ -1,6 +1,6 @@
-# AWS Community Day DACH 2021 - Deployment
+# AWS Community Day DACH 2021 - API
 
-An AWS CDK construct which deploys a deployment nested stack.
+An AWS CDK construct which deploys an rest api nested stack.
 
 ## Usage
 
@@ -12,13 +12,13 @@ Add to your CDK stack:
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-import { DeploymentStack } from '@stormreply/aws-community-day-dach-2021-deployment';
+import { ApiStack } from '@stormreply/aws-community-day-dach-2021-api';
 
 export class MyStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    new DeploymentStack(this, 'Deployment');
+    new ApiStack(this, 'Api');
   }
 }
 ```
