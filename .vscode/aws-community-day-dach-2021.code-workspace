@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "name": "aws-community-day-dach-2021",
+      "path": "../"
+    },
+    {
+      "name": "api",
+      "path": "../constructs/api"
+    },
+    {
+      "name": "deployment",
+      "path": "../constructs/deployment"
+    },
+    {
+      "name": "backend",
+      "path": "../packages/backend"
+    },
+    {
+      "name": "frontend",
+      "path": "../packages/frontend"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "constructs/": true,
+      "node_modules/": false,
+      "packages/": true
+    }
+  }
+}

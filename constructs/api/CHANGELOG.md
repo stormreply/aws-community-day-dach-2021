@@ -1,0 +1,11 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 0.1.0 (2021-10-20)
+
+
+### Features
+
+* **aws-community-day-dach-2021:** initial commit ([adcf4d4](https://github.com/stormreply/aws-community-day-dach-2021/commit/adcf4d4c04c4ffecfc94f932622595082a10b3df))
