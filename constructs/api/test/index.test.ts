@@ -117,7 +117,7 @@ describe('api stack', () => {
           Ref: 'FizzBuzz2992F36F',
         },
         DeploymentId: {
-          Ref: 'FizzBuzzDeploymentA62385A76cfc54de71e23034f5e6f2f93df39d3f',
+          Ref: 'FizzBuzzDeploymentA62385A78c85dec46df9b0a1dccad6114273e611',
         },
         StageName: 'prod',
       });
