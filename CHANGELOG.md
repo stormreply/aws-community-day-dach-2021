@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/stormreply/aws-community-day-dach-2021/compare/0.2.0...0.2.1) (2021-10-21)
+
+
+### Bug Fixes
+
+* **api:** added cors configuration ([3446239](https://github.com/stormreply/aws-community-day-dach-2021/commit/3446239404fd955c6e14666bfb2fb0b8da63ff37))
+
+
+
+
+
 # [0.2.0](https://github.com/stormreply/aws-community-day-dach-2021/compare/0.1.0...0.2.0) (2021-10-20)
 
 
