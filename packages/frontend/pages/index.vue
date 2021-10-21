@@ -1,9 +1,19 @@
 <template>
-  <Tutorial/>
+  <Tutorial />
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, namespace, Vue } from 'nuxt-property-decorator'
 
-export default Vue.extend({})
+const FizzBuzzModule = namespace('fizzbuzz')
+
+@Component
+export default class MyComponent extends Vue {
+  @FizzBuzzModule.Action('check') check!: (value: number) => Promise<any>
+
+  async mounted() {
+    console.log('mounted')
+    await this.check(23)
+  }
+}
 </script>

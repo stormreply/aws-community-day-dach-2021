@@ -1,4 +1,4 @@
-import { LambdaRestApi } from 'aws-cdk-lib/aws-apigateway';
+import { Cors, LambdaRestApi } from 'aws-cdk-lib/aws-apigateway';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
@@ -10,6 +10,10 @@ export class FizzBuzzApi extends LambdaRestApi {
   constructor(scope: Construct, props: FizzBuzzApiProps) {
     const { handler } = props;
     super(scope, 'FizzBuzz', {
+      defaultCorsPreflightOptions: {
+        allowOrigins: Cors.ALL_ORIGINS,
+        allowMethods: Cors.ALL_METHODS,
+      },
       handler,
       proxy: false,
     });
