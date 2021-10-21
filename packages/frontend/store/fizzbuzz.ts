@@ -12,10 +12,9 @@ import { store } from '~/store/index'
 })
 export default class FizzBuzz extends VuexModule {
   @VuexAction
-  async check(value: number): Promise<any> {
-    const response = await API.post('FizzBuzzAPI', '/check', {
+  check(value: number): Promise<string> {
+    return API.post('FizzBuzzAPI', '/check', {
       body: { number: value },
-    }).catch((error) => console.log(error))
-    console.log(response)
+    })
   }
 }
