@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/stormreply/aws-community-day-dach-2021/compare/0.2.1...0.3.0) (2021-10-21)
+
+
+### Features
+
+* **frontend:** added fizzbuzz api integration ([ee5f17d](https://github.com/stormreply/aws-community-day-dach-2021/commit/ee5f17d10dcba59c3b668a0a4b975f1169d56464))
+
+
+
+
+
 ## [0.2.1](https://github.com/stormreply/aws-community-day-dach-2021/compare/0.2.0...0.2.1) (2021-10-21)
 
 
