@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/stormreply/aws-community-day-dach-2021/compare/0.3.0...0.3.1) (2021-10-22)
+
+**Note:** Version bump only for package @stormreply/aws-community-day-dach-2021-frontend
+
+
+
+
+
 # [0.3.0](https://github.com/stormreply/aws-community-day-dach-2021/compare/0.2.1...0.3.0) (2021-10-21)
 
 

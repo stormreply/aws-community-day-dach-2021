@@ -6,7 +6,7 @@
     "name": "Henning Teek",
     "email": "h.teek@reply.de"
   },
-  "version": "0.3.0",
+  "version": "0.3.1",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
