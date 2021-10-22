@@ -1,7 +1,7 @@
-import { API } from 'aws-amplify'
-import { Module, VuexAction, VuexModule } from 'nuxt-property-decorator'
+import { API } from 'aws-amplify';
+import { Module, VuexAction, VuexModule } from 'nuxt-property-decorator';
 
-import { store } from '~/store/index'
+import { store } from '~/store/index';
 
 @Module({
   stateFactory: true,
@@ -15,6 +15,6 @@ export default class FizzBuzz extends VuexModule {
   check(value: number): Promise<string> {
     return API.post('FizzBuzzAPI', '/check', {
       body: { number: value },
-    })
+    });
   }
 }

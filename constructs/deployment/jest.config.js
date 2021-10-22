@@ -8,6 +8,12 @@ module.exports = {
       statements: -10,
     },
   },
+  globals: {
+    'ts-jest': {
+      isolatedModules: true,
+    },
+  },
+  maxWorkers: '25%',
   reporters: ['default'],
   roots: ['<rootDir>/test'],
   testEnvironment: 'node',

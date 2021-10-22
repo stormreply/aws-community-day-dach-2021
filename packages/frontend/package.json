@@ -12,6 +12,7 @@
     "build": "nuxt build",
     "build:production": "yarn generate",
     "start": "nuxt start",
+    "format": "prettier --config .prettierrc.js '**/*.{js,ts,md,vue}' --write",
     "generate": "nuxt generate",
     "lint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:ci": "yarn lint",

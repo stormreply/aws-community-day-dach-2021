@@ -1,36 +1,13 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div
-    class="
-      relative
-      flex
-      items-top
-      justify-center
-      min-h-screen
-      bg-gray-500
-      sm:items-center sm:pt-0
-    "
-  >
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+  <div class="relative flex items-top justify-center min-h-screen bg-gray-500 sm:items-center sm:pt-0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet" />
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-      <a
-        class="flex justify-center pt-8 sm:pt-0"
-        href="https://nuxtjs.org"
-        target="_blank"
-      >
-        <img
-          class="h-12 w-auto"
-          src="https://www.aws-community-day.de/assets/img/logo.png"
-          alt="Nuxt.js"
-        />
+      <a class="flex justify-center pt-8 sm:pt-0" href="https://nuxtjs.org" target="_blank">
+        <img class="h-12 w-auto" src="https://www.aws-community-day.de/assets/img/logo.png" alt="Nuxt.js" />
       </a>
       <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-6">
-        <h2 class="text-2xl leading-7 font-semibold">
-          Welcome to the FizzBuzz Demo Project
-        </h2>
+        <h2 class="text-2xl leading-7 font-semibold">Welcome to the FizzBuzz Demo Project</h2>
         <p class="mt-3 text-gray-600">
           We recommend you take a look at the
           <a
@@ -43,21 +20,14 @@
         </p>
         <p class="mt-4 pt-4 text-gray-800 border-t border-dashed">
           For the randomly generated number
-          <code class="bg-gray-100 text-sm p-1 rounded border">{{
-            value
-          }}</code>
+          <code class="bg-gray-100 text-sm p-1 rounded border">{{ value }}</code>
           the api returned
-          <code class="bg-gray-100 text-sm p-1 rounded border">{{
-            result
-          }}</code>
-          as result.<br />Click
-          <a class="underline" href="#" @click="refresh">here</a> to try again!
+          <code class="bg-gray-100 text-sm p-1 rounded border">{{ result }}</code>
+          as result.<br />Click <a class="underline" href="#" @click="refresh">here</a> to try again!
         </p>
       </div>
       <div class="flex justify-center pt-4 space-x-2">
-        <a
-          href="https://github.com/stormreply/aws-community-day-dach-2021"
-          target="_blank"
+        <a href="https://github.com/stormreply/aws-community-day-dach-2021" target="_blank"
           ><svg
             class="w-6 h-6 text-gray-600 hover:text-gray-800"
             xmlns="http://www.w3.org/2000/svg"
@@ -80,32 +50,32 @@
 </template>
 
 <script lang="ts">
-import { Component, namespace, Vue } from 'nuxt-property-decorator'
+import { Component, namespace, Vue } from 'nuxt-property-decorator';
 
-const FizzBuzzModule = namespace('fizzbuzz')
+const FizzBuzzModule = namespace('fizzbuzz');
 
 @Component
 export default class TutorialComponent extends Vue {
-  @FizzBuzzModule.Action('check') check!: (value: number) => Promise<any>
+  @FizzBuzzModule.Action('check') check!: (value: number) => Promise<any>;
 
   getRandomInt = (max: number) => {
-    return Math.floor(Math.random() * max)
-  }
+    return Math.floor(Math.random() * max);
+  };
 
-  private value = 0
-  private resultValue = ''
+  private value = 0;
+  private resultValue = '';
 
   async mounted() {
-    await this.refresh()
+    await this.refresh();
   }
 
   async refresh() {
-    this.value = this.getRandomInt(100)
-    this.resultValue = await this.check(this.value)
+    this.value = this.getRandomInt(100);
+    this.resultValue = await this.check(this.value);
   }
 
   get result() {
-    return this.resultValue
+    return this.resultValue;
   }
 }
 </script>

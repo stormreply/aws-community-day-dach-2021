@@ -1,4 +1,4 @@
-import { Amplify } from 'aws-amplify'
+import { Amplify } from 'aws-amplify';
 
 const getConfig = async (url: string): Promise<any> => {
   return fetch(url)
@@ -6,7 +6,7 @@ const getConfig = async (url: string): Promise<any> => {
     .then((data) => {
       const {
         BackendStack: { restApiEndpoint: endpoint },
-      } = data
+      } = data;
       return {
         API: {
           endpoints: [
@@ -16,10 +16,10 @@ const getConfig = async (url: string): Promise<any> => {
             },
           ],
         },
-      }
-    })
-}
+      };
+    });
+};
 
 export default async () => {
-  Amplify.configure(await getConfig('./outputs.json'))
-}
+  Amplify.configure(await getConfig('./outputs.json'));
+};
